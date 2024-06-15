@@ -8,7 +8,7 @@ urlpatterns = [
     path('ckeditor5/', include('django_ckeditor_5.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('admin/', admin.site.urls),
-    path("https://school14-tomsk-pr-ru.onrender.com", views.base),
+    path("", views.base),
     path('teacher/', views.teacher, name='teacher'),
     path('news/', views.news, name='news'),
     path('one_new/<post_id>/', views.one_new, name='one_new'),
