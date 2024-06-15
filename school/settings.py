@@ -16,8 +16,7 @@ SECRET_KEY = 'django-insecure-*@3tyf=&*(g0=_!=^nm@q-u398tc)jte(t3j%uioe@3@ra7a_1
 DEBUG = True
 
 ALLOWED_HOSTS = ['school14.onrender.com']
-from django.core.management.commands.runserver import Command 
-as runserver
+from django.core.management.commands.runserver import Command as runserver
    runserver.default_port = "4000"
 
 # Application definition
