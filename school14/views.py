@@ -4,7 +4,7 @@ from django.db.models import Avg
 from .models import News, MenuItem, Teacher
 
 def base(request):
-    return render(request, 'bases.html')
+    return render(request, 'index.html')
 
 def news(request):
     news = News.objects.all().order_by('-pub_date')
