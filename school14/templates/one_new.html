@@ -1,0 +1,12 @@
+{% extends 'bases.html' %}
+
+
+{% block title %}Новости{% endblock %}
+{% block name%}<a class="navbar-brand" href="/news ">Вернуться к списку новостей</a>{% endblock name %}
+{% block content %}
+
+<h1>{{ timestamp }} - {{ title }}</h1>
+
+<div>{{ body|safe|escape}}</div>
+
+{% endblock %}

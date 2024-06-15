@@ -1,0 +1,25 @@
+{% extends "bases.html" %}
+
+{% block title %}Педагогический (научно-педагогический) состав{% endblock title %}
+{% block name%}Педагогический (научно-педагогический) состав{% endblock name %}
+{% block content %}
+<table class="table">
+  <thead><tr>
+      <th scope="col">Фото</th>
+      <th scope="col">ФИО</th>
+      <th scope="col">Должность</th>
+      <th scope="col">Образование/повышения квалификации</th>
+    </tr></thead>
+        {% for teacher in teacher %} 
+            <tr>
+              <td>{{ teacher.foto|safe }}</td>
+              <td scope="row">{{ teacher.FIO }}</td>
+              <td scope="row">{{ teacher.dolg }}</td>
+              <td scope="row">{{ teacher.pub|safe}}</td>
+          </tr>
+
+        {% endfor %}
+      </table>
+    </div>
+{% endblock %}
+    

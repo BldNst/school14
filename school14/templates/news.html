@@ -1,0 +1,25 @@
+{% extends "bases.html" %}
+
+{% block title %}Новости{% endblock title %}
+{% block name%}Новости{% endblock name %}
+{% block content %}
+
+        {% for post in news %} <!-- итерация по всем постам -->
+            <dl>
+              <dd>
+                <h3>
+                    <a href="/one_new/{{ post.id }}/">{{ post.title }}</a>
+                </h3>
+              </dd>
+            </dl>
+
+            <!-- дата публикации -->
+            {{ post.pub_date }}
+
+            <!-- обрезаем посты, вывод по 80 слов -->
+            {{ post.content|truncatewords:10|safe }}
+
+        {% endfor %}
+    </div>
+{% endblock %}
+    

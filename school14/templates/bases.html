@@ -1,0 +1,94 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load common_tags %}
+<!DOCTYPE HTML >
+<html style="font-size: 16px;" lang="ru">
+<head>
+    <link rel=stylesheet href="{% static "css/styles.css" %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script>
+        window.addEventListener("resize", AutoScale); //Масштабируем страницу при растягивании окна
+        AutoScale(); //Масштабируем страницу после загрузки
+        function AutoScale()
+        {
+            let width = window.innerWidth;
+            if(width > 1280)
+            {
+                ChangeScale("big");
+            }
+            else if(width <= 1280 && width > 1020)
+            {
+                ChangeScale("normal");
+            }
+            else if(width < 1020)
+            {
+                ChangeScale("small");
+            }
+        }
+            </script>
+</head>
+
+<title>
+    МАОУ СОШ № 14 | {% block title %}
+    {% for menu_item in menu_items %}
+    {{ menu_item.name }}
+    {% endfor %}
+    {% endblock title %}
+</title>
+
+<body>
+    <table width=100% cellpadding=0 cellspacing=0 border=0>
+    <tr>
+    <td width=200><img src="{% static "img/logo.png" %}" width=200 height=120></td>
+    <td width=99% class="top_title">Муниципальное автономное общеобразовательное учреждение<br>Средняя общеобразовательная школа № 14<br>имени А.Ф. Лебедева г. Томска</td>
+    </tr>
+    </table>
+<header>
+  {% show_menu %}
+</header>
+
+<table width=100% border=0 cellspacing=0 cellpadding=0>
+<tr valign=top>
+<td class="left" width=200>
+    <div class="menu0"><a class="m0" href="/obr_prz"><a target="_blank" href="http://kremlin.ru/events/president/news/67843"><img src="http://school14.tomsk.ru/files/img/pres 354-260.jpg" width="245" height="180" border="0" vspace="5" title="Обращение президента"></a></a></div>
+    <div class="menu0"><a class="m0" href="/obsn"><a target="_blank" href="https://объясняем.рф"><img src="http://school14.tomsk.ru/files/img/explaneHD.jpg" width="245" height="81" border="0" vspace="5" title="Объясняем.рф"></a></a></div>
+    <div class="menu0"><a class="m0" href="/krest"><a target="_blank" href="https://admin.tomsk.ru/pgs/em1"><img src="http://school14.tomsk.ru/files/img/krestHD.jpg" width="245" height="81" border="0" vspace="5" title="Сбор гуманитарной помощи"></a></a></div>
+    <div style="margin: 20px 10px;">
+    <a target="_blank" href="http://минобрнауки.рф">Официальный сайт Министерства образования и науки РФ</a>
+    <br><br><a target="_blank" href="http://obr.tomsk.ru">Департамент общего образования Томской области</a>
+    <br><br><a target="_blank" href="http://www1.admin.tomsk.ru/pages/admin_subdiv_obr">Департамент образования города Томска</a>
+    <br><br><a target="_blank" href="http://www.obrnadzor.gov.ru/">Федеральная служба по надзору в сфере образования</a>
+    <br><br><a target="_blank" href="http://edu.tomsk.ru/">ТОИПКРО</a>
+    <br><br><a target="_blank" href="http://school-collection.edu.ru/">Единая коллекция ЭОР</a>
+    </div>
+</td>
+
+<td class="center">
+<h1>/{% block name%}
+    {% for menu_item in menu_items %}
+    {{ menu_item.name }}
+    {% endfor %}
+
+    {% endblock name %}</h1>
+
+<p>&nbsp;<span style="font-size: medium;" > </span></p>
+{% block content%}
+{% for menu_item in menu_items %}
+{{ menu_item.content| safe }}
+{{ menu_item.media }}
+{% endfor %}
+{% endblock content %}
+<p style="text-align: center;">&nbsp;</p>
+</td>
+
+
+</tr>
+</table>
+
+<div class="bot">МАОУ СОШ № 14 &nbsp; E-mail: <a class="white" href="mailto:school14@tomsk.net">school14@tomsk.net</a></div>
+<script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
